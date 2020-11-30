@@ -1,0 +1,76 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UserSecretsId>aspnet-Tweetbook-97323CCE-03F5-4B8E-B220-F15BB4C60EE1</UserSecretsId>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    <PackageProjectUrl></PackageProjectUrl>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Data\Migrations\00000000000000_CreateIdentitySchema.cs" />
+    <Compile Remove="Data\Migrations\00000000000000_CreateIdentitySchema.Designer.cs" />
+    <Compile Remove="Data\Migrations\20201110085732_AddedPosts.cs" />
+    <Compile Remove="Data\Migrations\20201110085732_AddedPosts.Designer.cs" />
+    <Compile Remove="Data\Migrations\20201110090622_ReplacedGuid.cs" />
+    <Compile Remove="Data\Migrations\20201110090622_ReplacedGuid.Designer.cs" />
+    <Compile Remove="Data\Migrations\20201110090945_ReplacedGuidkey.cs" />
+    <Compile Remove="Data\Migrations\20201110090945_ReplacedGuidkey.Designer.cs" />
+    <Compile Remove="Data\Migrations\20201110091429_GuidReplacement.cs" />
+    <Compile Remove="Data\Migrations\20201110091429_GuidReplacement.Designer.cs" />
+    <Compile Remove="Data\Migrations\20201110091542_AddKeyGuid.cs" />
+    <Compile Remove="Data\Migrations\20201110091542_AddKeyGuid.Designer.cs" />
+    <Compile Remove="Data\Migrations\20201119142631_AddModels.cs" />
+    <Compile Remove="Data\Migrations\20201119142631_AddModels.Designer.cs" />
+    <Compile Remove="Data\Migrations\20201119143003_AddModels.cs" />
+    <Compile Remove="Data\Migrations\20201119143003_AddModels.Designer.cs" />
+    <Compile Remove="Data\Migrations\ApplicationDbContextModelSnapshot.cs" />
+    <Compile Remove="Migrations\20201123103307_BasicModel.cs" />
+    <Compile Remove="Migrations\20201123103307_BasicModel.Designer.cs" />
+    <Compile Remove="Migrations\20201123120035_BasicModel.cs" />
+    <Compile Remove="Migrations\20201123120035_BasicModel.Designer.cs" />
+    <Compile Remove="Migrations\20201126100855_basicModel.cs" />
+    <Compile Remove="Migrations\20201126100855_basicModel.Designer.cs" />
+    <Compile Remove="Migrations\20201126152312_basicmodel.cs" />
+    <Compile Remove="Migrations\20201126152312_basicmodel.Designer.cs" />
+    <Compile Remove="Migrations\20201126152527_basicmodel.cs" />
+    <Compile Remove="Migrations\20201126152527_basicmodel.Designer.cs" />
+    <Compile Remove="Migrations\20201126154136_basicmodel.cs" />
+    <Compile Remove="Migrations\20201126154136_basicmodel.Designer.cs" />
+    <Compile Remove="Migrations\20201126154213_basicmodel.cs" />
+    <Compile Remove="Migrations\20201126154213_basicmodel.Designer.cs" />
+    <Compile Remove="Migrations\20201126154610_basicmodel.cs" />
+    <Compile Remove="Migrations\20201126154610_basicmodel.Designer.cs" />
+    <Compile Remove="Migrations\20201126155227_basicmodel.cs" />
+    <Compile Remove="Migrations\20201126155227_basicmodel.Designer.cs" />
+    <Compile Remove="Migrations\20201126233844_thumbnailadded.cs" />
+    <Compile Remove="Migrations\20201126233844_thumbnailadded.Designer.cs" />
+    <Compile Remove="Migrations\20201128222736_variation-added.cs" />
+    <Compile Remove="Migrations\20201128222736_variation-added.Designer.cs" />
+    <Compile Remove="Migrations\20201129225200_createassetdb.cs" />
+    <Compile Remove="Migrations\20201129225200_createassetdb.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Azure.Storage.Blobs" Version="12.7.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="3.1.10" />
+    <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="3.1.8" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.8" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="3.1.8" />
+    <PackageReference Include="Microsoft.Azure.CognitiveServices.Vision.ComputerVision" Version="6.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="3.1.9" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.9" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.9">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.10.9" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.4" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Data\Migrations\" />
+  </ItemGroup>
+
+</Project>
