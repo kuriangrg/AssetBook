@@ -8,6 +8,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using AssetManagement.Data;
 using AssetManagement.Services;
+using AssetManagement.Extensions;
 
 namespace AssetManagement.Installers
 {
@@ -18,6 +19,7 @@ namespace AssetManagement.Installers
             services.AddDbContext<DataContext>(options =>
                 options.UseSqlServer(
                 configuration.GetConnectionString("DefaultConnection")));
+            services.AddScoped<DBContextFactory, DBContextFactory>();
             services.AddScoped<IAssetService, AssetService>();
             services.AddScoped<IBlobService, AzureBlobService>();
             services.AddScoped<IVariantService, VariantService>();

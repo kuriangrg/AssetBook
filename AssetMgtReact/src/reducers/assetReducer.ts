@@ -1,12 +1,20 @@
-import { AssetDispatchTypes, AssetTree,ASSET_ADD, ASSET_FAILURE, ASSET_LOAD, ASSET_SUCCESS } from "../model/assetActionTypes";
+import { AssetDispatchTypes, AssetTree,ASSET_ADD, 
+    ASSET_CURRENTASSET_ADD, ASSET_FAILURE, ASSET_LOAD, ASSET_SUCCESS } from "../model/assetActionTypes";
 
 interface DefaultStateI{
-
-    loading:boolean,
+    error?:boolean,
+    currentAsset:AssetTree,
     asset:AssetTree
 }
 const defaultState:DefaultStateI={
-    loading:false,
+    currentAsset:{
+        assetId: 1,
+        assetName: 'Parent',
+        pathName:"1",
+        parentAssetId:0,
+        isFolder:true,
+        children: [],
+    },
     asset:{
         assetId: 1,
         assetName: 'Parent',
@@ -14,7 +22,8 @@ const defaultState:DefaultStateI={
         parentAssetId:0,
         isFolder:true,
         children: [],
-      }
+      },
+      error:false
 };
 
 
@@ -23,13 +32,13 @@ const assetReducer=(state:DefaultStateI=defaultState,action:AssetDispatchTypes) 
     switch(action.type)
     {
         case ASSET_FAILURE:
-            return{loading:false,asset:state.asset}
+            return{error:true,...state}
         case ASSET_LOAD:
                 return{ ...state}
         case ASSET_SUCCESS:
             if(action.payload.parentAssetId==null)
             {
-            return{loading:false,asset:action.payload}
+            return{asset:action.payload,currentAsset:state.currentAsset}
             }
             else
             {
@@ -57,8 +66,14 @@ const assetReducer=(state:DefaultStateI=defaultState,action:AssetDispatchTypes) 
             }
                
             return {...state};
+        case ASSET_CURRENTASSET_ADD:
+                                    
+                  return {...state, currentAsset: action.payload};
+
+       
     }
-    return state;
+    return {...state};
+    
 }
 
 const searchTree=function(element:AssetTree,assetId:number):AssetTree|null{

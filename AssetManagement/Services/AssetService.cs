@@ -52,8 +52,8 @@ namespace AssetManagement.Services
             await _dataContext.Assets.AddAsync(asset);
             var created = await _dataContext.SaveChangesAsync();
 
-            _ = Task.Run(() => SaveOriginalMedia(request, asset));
-            _ = Task.Run(() => _variantService.CreateVariantsForAssetAsync(request.FormFile, asset.AssetId));
+            await Task.Run(() => SaveOriginalMedia(request, asset));
+            await Task.Run(() => _variantService.CreateVariantsForAssetAsync(request.FormFile, asset.AssetId));
             //TO DO add meta data
 
             return asset;

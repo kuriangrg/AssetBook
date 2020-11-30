@@ -11,13 +11,17 @@ import { HomePage } from "./pages";
 import { withRoot } from "./withRoot";
 import { AssetTree } from "./model/assetActionTypes";
 import { AssetDetails } from "./pages/AssetDetails/AssetDetails";
+import { useDispatch, useSelector } from "react-redux";
+import { RootStore } from "./store";
+import { AddCurrentAsset } from "./actions/assetAction";
 
 function App() {
 	const classes = useStyles();
+	const dispatch = useDispatch();
 	const [mobileOpen, setMobileOpen] = React.useState(true);
 	const initCurrentAssetState : AssetTree={assetId:1,assetName:"Parent",parentAssetId:0};
-	const [currentAsset, setCurrentAsset] = React.useState(initCurrentAssetState);
-
+	// const [currentAsset, setCurrentAsset] = React.useState(initCurrentAssetState);
+	const assetState = useSelector((state: RootStore) => state.asset);
 	const isMobile = useMediaQuery((theme: Theme) =>
 	theme.breakpoints.down("sm")
 	);
@@ -27,7 +31,7 @@ function App() {
 	};
 
 	const handleFolderClick = (asset:AssetTree) => {
-		setCurrentAsset(asset);
+		dispatch(AddCurrentAsset(asset));
 	};
 
 	return (
@@ -89,7 +93,7 @@ function App() {
 					<div className={classes.content}>
 						<Switch >
 							<Route exact path="/">
-								<HomePage currentAsset={currentAsset}></HomePage>
+								<HomePage currentAsset={assetState.currentAsset}></HomePage>
 							</Route>
 							<Route path="/details/:assetId">
 								<AssetDetails></AssetDetails>

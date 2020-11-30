@@ -1,5 +1,5 @@
 import {Dispatch} from "redux"
-import {AssetDispatchTypes,ASSET_ADD,ASSET_FAILURE,ASSET_LOAD, ASSET_SUCCESS, FolderRequest} from "../model/assetActionTypes"
+import {AssetDispatchTypes,AssetTree,ASSET_ADD,ASSET_CURRENTASSET_ADD,ASSET_FAILURE,ASSET_LOAD, ASSET_SUCCESS, FolderRequest} from "../model/assetActionTypes"
 import axios from "axios";
 import configData from "../config";
 
@@ -35,8 +35,6 @@ export const AddImage =(file:File,parentAssetId:number)=> async (dispatch:Dispat
 
   try
   {
-      dispatch({type:ASSET_LOAD});
-
       const formData=new FormData();
       formData.append("FormFile",file);
       formData.append("ParentAssetId",parentAssetId.toString());
@@ -52,5 +50,21 @@ export const AddImage =(file:File,parentAssetId:number)=> async (dispatch:Dispat
       dispatch({type:ASSET_FAILURE})
   }
 }
+export const AddCurrentAsset =(currentAsset:AssetTree)=> async (dispatch:Dispatch<AssetDispatchTypes>) =>{
+
+    try
+    {
+      
+        //API Request
+         dispatch({type:ASSET_CURRENTASSET_ADD,
+             payload:currentAsset});
+        
+    }
+    catch(e)
+    {
+      console.log(e);
+        dispatch({type:ASSET_FAILURE})
+    }
+  }
 
 

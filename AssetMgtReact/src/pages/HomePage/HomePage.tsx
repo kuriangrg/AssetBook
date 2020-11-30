@@ -30,6 +30,8 @@ export function HomePage(props: HomeProps) {
 
 	}
 	
+
+
 	const imageSubmit = () => {
 		if (mediaFile) {
 			dispatch(AddImage(mediaFile, props.currentAsset.assetId));
