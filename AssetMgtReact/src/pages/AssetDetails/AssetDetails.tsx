@@ -4,7 +4,6 @@ import axios from "axios";
 import React from "react";
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { AssetTree } from "../../model/assetActionTypes";
 import ImageCard from "../../components/VariantList/ImageCard";
 import configData from "../../config";
 import { AssetDetail } from "./IAssetDetail";
@@ -20,7 +19,7 @@ export function AssetDetails() {
             setAssetDetailState(response.data);
         }
         ).catch(err=>console.log(err));
-    });
+    },[assetId]);
 
     return(
         <Container maxWidth="lg" className={classes.root} >

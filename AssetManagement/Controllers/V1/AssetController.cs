@@ -15,19 +15,23 @@ namespace AssetManagement.Controllers.V1
     {
         private readonly IAssetService _assetService;
         private readonly IBlobService _blobService;
-        private readonly AzureOptions _azureOptions;
+       
         private readonly IVariantService _variantService;
 
         public AssetController(IAssetService assetService,
-            IBlobService blobService, AzureOptions azureOptions,IVariantService variantService)
+            IBlobService blobService, IVariantService variantService)
         {
             _assetService = assetService;
             _blobService = blobService;
-            _azureOptions = azureOptions;
             _variantService = variantService;
 
         }
 
+        /// <summary>
+        /// Retrieves the asset and immediate 2 level of children
+        /// </summary>
+        /// <param name="assetId"></param>
+        /// <returns></returns>
         [HttpGet(ApiRoutes.Assets.GetAssetAndChildren)]
         public async Task<IActionResult> GetAssetAndChildren([FromRoute] int assetId)
         {
@@ -47,6 +51,11 @@ namespace AssetManagement.Controllers.V1
             }
         }
 
+        /// <summary>
+        /// Get the asset details along with variant details
+        /// </summary>
+        /// <param name="assetId"></param>
+        /// <returns></returns>
         [HttpGet(ApiRoutes.Assets.GetAssetDetails)]
         public async Task<IActionResult> GetAssetDetails([FromRoute] int assetId)
         {
@@ -67,7 +76,11 @@ namespace AssetManagement.Controllers.V1
             }
         }
 
-
+        /// <summary>
+        /// Create an image or video
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
         [HttpPost(ApiRoutes.Assets.CreateMediaAsset)]
         public async Task<IActionResult> SaveAsset([FromForm] CreateAssetRequest request)
         {
