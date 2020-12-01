@@ -7,12 +7,11 @@ import { DropzoneArea } from "material-ui-dropzone";
 import TitlebarGridList from "../../components/GridList/ImageGridList";
 import { useHistory } from 'react-router-dom';
 import { Button, TextField } from "@material-ui/core";
-import { HomeProps } from "./IHomeProps";
 import { RootStore } from "../../store";
 
 
 
-export function HomePage(props: HomeProps) {
+export function HomePage() {
 
 	const dispatch = useDispatch();
 	const [assetName, setassetName] = React.useState("");
@@ -34,7 +33,7 @@ export function HomePage(props: HomeProps) {
 
 	const imageSubmit = () => {
 		if (mediaFile) {
-			dispatch(AddImage(mediaFile, props.currentAsset.assetId));
+			dispatch(AddImage(mediaFile, assetState.currentAsset.assetId));
 		}
 	}
 	const assetDetails = (asset: AssetTree) => {
