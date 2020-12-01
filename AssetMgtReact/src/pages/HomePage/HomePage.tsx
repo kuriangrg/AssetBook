@@ -25,7 +25,7 @@ export function HomePage(props: HomeProps) {
 
 	};
 	const handleSubmit = () => {
-		dispatch(AddFolder({ folderName: assetName, parentAssetId: props.currentAsset.assetId }));
+		dispatch(AddFolder({ folderName: assetName, parentAssetId: assetState.currentAsset.assetId }));
 		setassetName("");
 
 	}
@@ -66,7 +66,7 @@ export function HomePage(props: HomeProps) {
 			</Button>
 			{/* </form> */}
 			{
-				(props.currentAsset.children) && <TitlebarGridList currentAsset={props.currentAsset.children} tileClick={assetDetails} />
+				(assetState.currentAsset.children) && <TitlebarGridList currentAsset={assetState.currentAsset.children} tileClick={assetDetails} />
 			}
 		</div>
 	);

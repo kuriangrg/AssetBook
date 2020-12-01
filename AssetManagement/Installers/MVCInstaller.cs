@@ -1,14 +1,6 @@
-﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.Extensions.Configuration;
+﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.IdentityModel.Tokens;
-using Microsoft.OpenApi.Models;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using AssetManagement.option;
-using AssetManagement.Services;
 using Azure.Storage.Blobs;
 using Microsoft.Azure.CognitiveServices.Vision.ComputerVision;
 

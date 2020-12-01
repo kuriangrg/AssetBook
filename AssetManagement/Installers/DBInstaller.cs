@@ -1,14 +1,8 @@
-﻿using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using AssetManagement.Data;
 using AssetManagement.Services;
-using AssetManagement.Extensions;
 
 namespace AssetManagement.Installers
 {
@@ -19,7 +13,7 @@ namespace AssetManagement.Installers
             services.AddDbContext<DataContext>(options =>
                 options.UseSqlServer(
                 configuration.GetConnectionString("DefaultConnection")));
-            services.AddScoped<DBContextFactory, DBContextFactory>();
+            //services.AddScoped<DBContextFactory, DBContextFactory>();
             services.AddScoped<IAssetService, AssetService>();
             services.AddScoped<IBlobService, AzureBlobService>();
             services.AddScoped<IVariantService, VariantService>();

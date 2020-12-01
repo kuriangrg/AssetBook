@@ -8,7 +8,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { RootStore } from "../../store";
 import { AssetTree } from "../../model/assetActionTypes";
-import { GetAsset } from "../../actions/assetAction";
+import { AddCurrentAsset, GetAsset } from "../../actions/assetAction";
 import { useHistory } from "react-router-dom";
 import { FolderProps } from "./iFolder";
 
@@ -27,6 +27,7 @@ export function FolderStruct(Props:FolderProps) {
        Props.FolderClick(item);
        dispatch(GetAsset(item.assetId));
        history.push('/');
+       dispatch(AddCurrentAsset(item));
       
   };
 

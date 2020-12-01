@@ -1,6 +1,5 @@
 ﻿
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
 using System;
 
 public static class UrlExtensions
@@ -15,5 +14,16 @@ public static class UrlExtensions
     {
         
         return (request.Scheme + "://" + request.Host.Value+contentPath);
+    }
+    
+    /// <summary>
+    /// Prepend the guid with the string
+    /// </summary>
+    /// <param name="name"></param>
+    /// <returns></returns>
+    public static string PrependGuid(this string name)
+    {
+
+        return Guid.NewGuid()+ name.ToLower().Replace(" ", string.Empty);
     }
 }

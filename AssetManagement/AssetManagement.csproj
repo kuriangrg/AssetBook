@@ -25,6 +25,7 @@
     <Compile Remove="Data\Migrations\20201119143003_AddModels.cs" />
     <Compile Remove="Data\Migrations\20201119143003_AddModels.Designer.cs" />
     <Compile Remove="Data\Migrations\ApplicationDbContextModelSnapshot.cs" />
+    <Compile Remove="Extensions\DBContextFactory.cs" />
     <Compile Remove="Migrations\20201123103307_BasicModel.cs" />
     <Compile Remove="Migrations\20201123103307_BasicModel.Designer.cs" />
     <Compile Remove="Migrations\20201123120035_BasicModel.cs" />

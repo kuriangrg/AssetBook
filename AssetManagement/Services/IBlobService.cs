@@ -11,7 +11,7 @@ namespace AssetManagement.Services
 {
     public interface IBlobService
     {
-        Task<Uri> UploadMediaAsBlob(Stream stream, string containerName, string shortFileName, string contentType);
+        Task<Uri> UploadMediaAsBlob(Stream stream, string containerName, string fullFileName, string contentType);
 
         Task<BlobDownloadInfo> GetBlobAsync(string blobName,string container);
     

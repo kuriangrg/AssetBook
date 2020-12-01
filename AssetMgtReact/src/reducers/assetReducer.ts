@@ -36,9 +36,9 @@ const assetReducer=(state:DefaultStateI=defaultState,action:AssetDispatchTypes) 
         case ASSET_LOAD:
                 return{ ...state}
         case ASSET_SUCCESS:
-            if(action.payload.parentAssetId==null)
+            if(action.payload.assetId===1)
             {
-            return{asset:action.payload,currentAsset:state.currentAsset}
+            return{asset:action.payload,currentAsset:action.payload}
             }
             else
             {
@@ -72,7 +72,7 @@ const assetReducer=(state:DefaultStateI=defaultState,action:AssetDispatchTypes) 
 
        
     }
-    return {...state};
+    return {...state,currentAsset:state.asset};
     
 }
 

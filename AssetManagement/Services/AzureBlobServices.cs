@@ -32,28 +32,31 @@ namespace AssetManagement.Services
            
         }
 
-        public async Task<Uri> UploadMediaAsBlob(Stream stream,string containerName,string shortFileName,string contentType)
+        public async Task<Uri> UploadMediaAsBlob(Stream stream, string containerName, string fileName, string contentType)
         {
-            
+           
 
-                BlobContainerClient containerClient;
+            BlobContainerClient containerClient;
+            try
+            {
                 containerClient = _blobServiceClient.GetBlobContainerClient(containerName);
                 containerClient.CreateIfNotExists();
-                string fileName = Guid.NewGuid()+ shortFileName;
-                BlobClient blobClient = containerClient.GetBlobClient(fileName);
-                try
-                {
-                    await blobClient.UploadAsync(stream,new BlobHttpHeaders { ContentType= contentType });
-                }
-                catch(Exception ex)
-                {
-                    Console.WriteLine(ex.Message);
-                    throw ex;
-                }
-                return  blobClient.Uri;
-            
-        }
 
+                BlobClient blobClient = containerClient.GetBlobClient(fileName);
+
+                await blobClient.UploadAsync(stream, new BlobHttpHeaders { ContentType = contentType });
+                return blobClient.Uri;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                throw ex;
+            }
+
+
+
+
+        }
    
     }
 }

@@ -19,8 +19,6 @@ function App() {
 	const classes = useStyles();
 	const dispatch = useDispatch();
 	const [mobileOpen, setMobileOpen] = React.useState(true);
-	const initCurrentAssetState : AssetTree={assetId:1,assetName:"Parent",parentAssetId:0};
-	// const [currentAsset, setCurrentAsset] = React.useState(initCurrentAssetState);
 	const assetState = useSelector((state: RootStore) => state.asset);
 	const isMobile = useMediaQuery((theme: Theme) =>
 	theme.breakpoints.down("sm")
